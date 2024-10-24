@@ -1,2 +1,2 @@
-# YajairaPechCalidad2024
-Administración de calidad de software
+# AngelDzulCalidad2024
+retro de la clase de calidad
