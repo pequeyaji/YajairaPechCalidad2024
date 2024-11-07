@@ -1,0 +1,6 @@
+hola como estas
+<<<<<<< HEAD
+esta es otra linea local
+=======
+esta es una linea de prueba
+>>>>>>> branch 'main' of https://github.com/bettysastre/BettySastreCalidad2024.git
