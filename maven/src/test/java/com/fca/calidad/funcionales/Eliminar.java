@@ -2,9 +2,6 @@ package com.fca.calidad.funcionales;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
-
-
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -40,6 +37,26 @@ public class Eliminar {
     driver.get("https://mern-crud-mpfr.onrender.com/");
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr[5]/td[5]/button[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Yajairapech'])[2]/following::button[1]")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+    driver.findElement(By.name("name")).click();
+    driver.findElement(By.name("name")).clear();
+    driver.findElement(By.name("name")).sendKeys("yajaira pech");
+    driver.findElement(By.name("email")).click();
+    driver.findElement(By.name("email")).clear();
+    driver.findElement(By.name("email")).sendKeys("yajairap@gmail.com");
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Email'])[2]/following::div[3]")).click();
+    driver.findElement(By.name("age")).click();
+    driver.findElement(By.name("age")).clear();
+    driver.findElement(By.name("age")).sendKeys("22");
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop'])[1]/following::div[1]")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[2]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Yajaira Pech'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Yajaira Pech'])[2]/following::button[1]")).click();
+   // assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*2[\\s\\S]*$"));
+    
   }
 
   @After
