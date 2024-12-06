@@ -86,7 +86,7 @@ class CalculadoraTest {
 	
 	@AfterEach
 	void print() {
-		System.out.println("esto se imprime desp de cada prueba");
+		System.out.println("esto se imprime despues de cada prueba para verificar");
 	}
 
 }
