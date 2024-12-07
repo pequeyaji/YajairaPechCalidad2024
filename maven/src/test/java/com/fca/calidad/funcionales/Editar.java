@@ -28,7 +28,7 @@ public class Editar {
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     js = (JavascriptExecutor) driver;
   }
-
+//editar
   @Test
   public void testEd2() throws Exception {
     driver.get("https://mern-crud-mpfr.onrender.com/");
