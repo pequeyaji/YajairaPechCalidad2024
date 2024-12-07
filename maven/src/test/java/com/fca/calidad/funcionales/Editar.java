@@ -1,5 +1,4 @@
 package com.fca.calidad.funcionales;
-
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -15,16 +14,15 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.time.Duration;
 
-public class Eliminar {
+public class Editar {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
-  
   @Before
   public void setUp() throws Exception {
-    WebDriverManager.chromedriver().setup();
+	  WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -32,46 +30,30 @@ public class Eliminar {
   }
 
   @Test
-  public void testBuscar() throws Exception {
+  public void testEd2() throws Exception {
     driver.get("https://mern-crud-mpfr.onrender.com/");
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
     driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("prueba1");
+    driver.findElement(By.name("name")).sendKeys("nuevo");
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("prueba1@gmail.com");
+    driver.findElement(By.name("email")).sendKeys("nuevo@gmail.com");
     driver.findElement(By.name("age")).click();
     driver.findElement(By.name("age")).clear();
     driver.findElement(By.name("age")).sendKeys("22");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::div[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop'])[1]/following::div[1]")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[4]")).click();
-    driver.get("https://mern-crud-mpfr.onrender.com/");
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+    driver.findElement(By.xpath("//i")).click();
+    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button")).click();
     driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("prueba2");
-    driver.findElement(By.name("email")).click();
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("prueba2@gmail.com");
-    driver.findElement(By.name("age")).click();
-    driver.findElement(By.name("age")).clear();
-    driver.findElement(By.name("age")).sendKeys("22");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::div[1]")).click();
+    driver.findElement(By.name("name")).sendKeys("Nuevocambio");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop'])[1]/following::div[1]")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[2]")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[3]")).click();
-
-    // Aquí se elimina la parte de "prueba3"
-    System.out.println("La creación del usuario 'prueba3' ha sido eliminada, no se procesará.");
+    driver.findElement(By.xpath("//i")).click();
   }
 
   @After
