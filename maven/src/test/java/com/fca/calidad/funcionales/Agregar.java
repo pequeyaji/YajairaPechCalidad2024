@@ -34,7 +34,7 @@ public class Agregar {
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
     js = (JavascriptExecutor) driver;
   }
-
+//prueba 
   @Test
   public void testAgregar() throws Exception {
     driver.get("https://mern-crud-mpfr.onrender.com/");
