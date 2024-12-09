@@ -54,6 +54,7 @@ public class Editar {
     driver.findElement(By.name("name")).sendKeys("Nuevocambio");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
     driver.findElement(By.xpath("//i")).click();
+    assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*nuevocambio[\\s\\S]*$"));
   }
 
   @After
