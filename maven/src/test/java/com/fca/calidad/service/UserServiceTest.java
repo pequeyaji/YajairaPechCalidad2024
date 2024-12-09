@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.any;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -63,5 +64,51 @@ class UserServiceTest {
 		assertThat("nuevoNombre",is(result.getName()));
 	}
 	//prueba12 
+	@Test
+	 void findUserByEmailTest() {
+	     // Preparar datos 
+	     User usuarioExistente = new User("nombreExistente", "emailExistente@gmail.com", "contra123");
+	     usuarioExistente.setId(1);
+	     baseDatos.put(usuarioExistente.getId(), usuarioExistente);
 
-}
+	     // DAO
+	     when(dao.findUserByEmail("emailExistente@gmail.com")).thenReturn(usuarioExistente);
+	     when(dao.findUserByEmail("emailNoExistente@gmail.com")).thenReturn(null);  // Simular un email no registrado
+
+	     // Llamar método de UserService
+	     User result = servicio.findUserByEmail("emailExistente@gmail.com");
+
+	     // Verificar 
+	     assertThat(result, is(notNullValue()));
+	     assertThat(result.getEmail(), is("emailExistente@gmail.com"));
+	     assertThat(result.getName(), is("nombreExistente"));
+	     User resultNoExistente = servicio.findUserByEmail("emailNoExistente@gmail.com");  // Verificar que no se encuentra un usuario
+	     assertThat(resultNoExistente, is(nullValue()));  // Debe devolver null
+	 }
+	 
+	 
+	 @Test
+	 void findAllUsersTest() {
+	     User usuario1 = new User("Guadalupe", "guadalupe@gmail.com", "cont123");
+	     usuario1.setId(1);
+	     baseDatos.put(usuario1.getId(), usuario1);
+
+	     User usuario2 = new User("Eduardo", "yajiss@gmail.com", "cont456");
+	     usuario2.setId(2);
+	     baseDatos.put(usuario2.getId(), usuario2);
+
+	     when(dao.findAll()).thenReturn(baseDatos.values().stream().toList());
+
+	     List<User> result = servicio.findAllUsers();
+
+	     assertThat(result, hasSize(2));
+	     assertThat(result, containsInAnyOrder(usuario1, usuario2));
+
+	     // Caso sin usuarios
+	     when(dao.findAll()).thenReturn(List.of());
+	     List<User> emptyResult = servicio.findAllUsers();
+	     assertThat(emptyResult, is(empty()));
+	 }
+
+
+	}
