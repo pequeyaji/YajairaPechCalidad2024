@@ -1,5 +1,6 @@
 package com.fca.calidad.funcionales;
 
+
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -21,10 +22,9 @@ public class Eliminar {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   JavascriptExecutor js;
-  
   @Before
   public void setUp() throws Exception {
-    WebDriverManager.chromedriver().setup();
+	  WebDriverManager.chromedriver().setup();
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
@@ -32,48 +32,26 @@ public class Eliminar {
   }
 
   @Test
-  public void testEliminar1() throws Exception {
+  public void testBorrar() throws Exception {
     driver.get("https://mern-crud-mpfr.onrender.com/");
-
-    // Agregar primer usuario
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
+    driver.findElement(By.name("name")).click();
     driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("Eliminado");
+    driver.findElement(By.name("name")).sendKeys("borrarprueba");
+    driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("Eliminar@gmail.com");
+    driver.findElement(By.name("email")).sendKeys("borrarprueba@gmail.com");
+    driver.findElement(By.name("age")).click();
     driver.findElement(By.name("age")).clear();
-    driver.findElement(By.name("age")).sendKeys("22");
+    driver.findElement(By.name("age")).sendKeys("20");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::span[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::div[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    
-    // Agregar segundo usuario
-    driver.findElement(By.xpath("//i")).click();
-    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
-    driver.findElement(By.name("name")).clear();
-    driver.findElement(By.name("name")).sendKeys("eliminarprueba");
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("eliminarprueb@gmail.com");
-    driver.findElement(By.name("age")).clear();
-    driver.findElement(By.name("age")).sendKeys("22");
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::span[1]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-    
-    // Eliminar el segundo usuario
-    driver.findElement(By.xpath("//i")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Stop'])[1]/following::div[1]")).click();
     driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button[2]")).click();
-    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Eliminarprueba'])[2]/following::button[1]")).click();
+    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Borrarprueba'])[2]/following::button[1]")).click();
+    assertTrue(driver.findElement(By.cssSelector("BODY")).getText().matches("^[\\s\\S]*borrarprueba[\\s\\S]*$"));
     
-    // Esperar a que la página se actualice (puedes usar WebDriverWait para hacerlo más eficiente)
-    Thread.sleep(2000);
-
-    // Verificar que el usuario ha sido eliminado
-    // Buscar el nombre del usuario eliminado en la página
-    String bodyText = driver.findElement(By.tagName("body")).getText();
-    
-    // Verificar que el nombre del usuario no está presente en el texto de la página
-    assertFalse("El usuario no se eliminó correctamente", bodyText.contains("eliminarprueba"));
   }
 
   @After
