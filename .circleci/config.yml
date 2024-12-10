@@ -27,6 +27,9 @@ jobs:
       - run: 
           name: Ejecutando pruebas mockito
           command: mvn -Dest-.com.fca.calidad.service.UserServiceTest test 
+       - run: 
+          name: Ejecutando pruebas katalon
+          command: mvn -Dest-.com.fca.calidad.funcionales.Agregar,com.fca.calidad.Eliminar,com.fca.calidad.Editar test
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
