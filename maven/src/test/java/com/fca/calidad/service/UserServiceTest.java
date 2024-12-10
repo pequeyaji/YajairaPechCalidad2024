@@ -108,7 +108,39 @@ class UserServiceTest {
 	     when(dao.findAll()).thenReturn(List.of());
 	     List<User> emptyResult = servicio.findAllUsers();
 	     assertThat(emptyResult, is(empty()));
+	    
 	 }
+	 @Test
+	 void createUserTest() {
+        // INICIALIZACIÓN
+        User nuevoUsuario = new User("nombre", "email", "password");
+        when(dao.findUserByEmail("email")).thenReturn(null);  // Simula que no existe el usuario
+        when(dao.save(any(User.class))).thenReturn(1);  // Simula que el ID 1 es asignado al usuario
+ 
+        // EJECUTAR
+        User resultado = servicio.createUser("nombre", "email", "password");
+ 
+        // VERIFICAR
+        assertThat(resultado.getName(), is("nombre"));
+        assertThat(resultado.getEmail(), is("email"));
+        assertThat(resultado.getPassword(), is("password"));
+        assertThat(resultado.getId(), is(1));
+    }	
 
+	 @Test 	
+	public void buscarIdTest1 () {
+		// INICIALIZACION
+		User resultadoEsperado = new User("name" , "email" , "password");
+		resultadoEsperado.setId(1);
+		when(dao.findById(1)).thenReturn(resultadoEsperado);
+		
+		  // EJERCICIO
+        User resultado = servicio.findUserById(1);
+ 
+        // VERIFICAR
+        assertThat(resultado.getId(), is(resultadoEsperado.getId()));
+        assertThat(resultado.getName(), is(resultadoEsperado.getName()));
+        assertThat(resultado.getEmail(), is(resultadoEsperado.getEmail()));
+    }
 
 	}

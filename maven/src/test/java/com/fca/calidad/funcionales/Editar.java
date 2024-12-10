@@ -30,28 +30,28 @@ public class Editar {
         driver.get("https://mern-crud-mpfr.onrender.com/");
 
         // Crear un usuario nuevo
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
-        driver.findElement(By.name("name")).click();
-        driver.findElement(By.name("name")).clear();
+        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();Thread.sleep(1000);
+        driver.findElement(By.name("name")).click();Thread.sleep(1000);
+        driver.findElement(By.name("name")).clear();Thread.sleep(1000);
         driver.findElement(By.name("name")).sendKeys("nuevo");
-        driver.findElement(By.name("email")).click();
+        driver.findElement(By.name("email")).click();Thread.sleep(1000);
         driver.findElement(By.name("email")).clear();
         driver.findElement(By.name("email")).sendKeys("nuevo@gmail.com");
-        driver.findElement(By.name("age")).click();
-        driver.findElement(By.name("age")).clear();
+        driver.findElement(By.name("age")).click();Thread.sleep(1000);
+        driver.findElement(By.name("age")).clear();Thread.sleep(1000);
         driver.findElement(By.name("age")).sendKeys("22");
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::div[2]")).click();
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-        driver.findElement(By.xpath("//i")).click();
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();Thread.sleep(1000);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[1]/following::div[2]")).click();Thread.sleep(1000);
+        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();Thread.sleep(1000);
+        driver.findElement(By.xpath("//i")).click();Thread.sleep(1000);
 
         // Editar el usuario creado
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button")).click();
-        driver.findElement(By.name("name")).click();
+        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr/td[5]/button")).click();Thread.sleep(1000);
+        driver.findElement(By.name("name")).click();Thread.sleep(1000);
         driver.findElement(By.name("name")).clear();
         driver.findElement(By.name("name")).sendKeys("Nuevocambio");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-        driver.findElement(By.xpath("//i")).click();
+        driver.findElement(By.xpath("//i")).click();Thread.sleep(1000);
  
 
         // Esperar a que el texto actualizado aparezca en la página
@@ -60,7 +60,7 @@ public class Editar {
 
         // Verificar que el nombre se actualizó correctamente
         String bodyText = driver.findElement(By.tagName("body")).getText();
-        assertTrue("El nombre no se actualizó correctamente", bodyText.contains("Nuevocambio"));
+        assertTrue("Who", bodyText.contains("Nuevocambio"));
     }
 
     @After

@@ -30,22 +30,22 @@ public class Buscar {
 	  }
 
 	  @Test
-	  public void testBuscar2() throws Exception {
+	  public void testBuscar() throws Exception {
 	    driver.get("https://mern-crud-mpfr.onrender.com/");
-	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();
-	    driver.findElement(By.name("name")).click();
+	    driver.findElement(By.xpath("//div[@id='root']/div/div[2]/button")).click();Thread.sleep(1000);
+	    driver.findElement(By.name("name")).click();Thread.sleep(1000);
 	    driver.findElement(By.name("name")).clear();
 	    driver.findElement(By.name("name")).sendKeys("buscar");
-	    driver.findElement(By.name("email")).click();
+	    driver.findElement(By.name("email")).click();Thread.sleep(1000);
 	    driver.findElement(By.name("email")).clear();
 	    driver.findElement(By.name("email")).sendKeys("buscar1@gmail.com");
-	    driver.findElement(By.name("age")).click();
+	    driver.findElement(By.name("age")).click();Thread.sleep(1000);
 	    driver.findElement(By.name("age")).clear();
 	    driver.findElement(By.name("age")).sendKeys("22");
-	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();
-	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::span[1]")).click();
-	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();
-	    driver.findElement(By.xpath("//i")).click();
+	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Gender'])[2]/following::div[1]")).click();Thread.sleep(1000);
+	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Male'])[2]/following::span[1]")).click();Thread.sleep(1000);
+	    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Woah!'])[1]/following::button[1]")).click();Thread.sleep(1000);
+	    driver.findElement(By.xpath("//i")).click();Thread.sleep(1000);
 
 	    // Selecciona el usuario de la columna "name"
 	    WebElement userRow = driver.findElement(By.xpath("//div[@id='root']/div/div[2]/table/tbody/tr"));
